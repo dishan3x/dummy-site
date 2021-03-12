@@ -1,0 +1,135 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Canopeo</title>   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Canopeo</title>
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/all.css" />
+    <!-- <link type="text/css"  href="css/custom_css.css/" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+   <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
+    
+
+</head>
+
+<style>
+.result_text{
+    font-size: calc(3vw) !important;
+}
+
+
+.color-box {
+    width: 5px;
+    height: 3vw;
+    display: inline-block;
+    left: 5px;
+    margin-right: 10px;
+    top: 5px;
+    border-style: solid;
+    border: thin;
+}
+
+#stubble_box{
+    background-color: yellow;
+    
+}
+
+#soil_box{
+    background-color: brown;
+    
+}
+
+#canopy_box{
+    background-color: green;
+
+}
+
+#upload_btn_wrapper_div{
+    float:none;
+}
+
+/* .container {
+
+    display: -ms-flexbox;
+    display: flex;
+
+    top: 10%;
+    left: 25%;
+    position: absolute;
+
+    box-sizing: border-box;
+
+} */
+
+/* .job-view p { display : block; overflow-wrap: break-word; max-width : 100%;}
+ */
+ </style>
+
+<body>
+<!--     <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">Kora js app</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="">coming soon</a></li>
+            <li><a href="">coming soon <span class="new badge">4</span></a></li>
+            <li><a href="">coming soon</a></li>
+          </ul>
+        </div>
+      </nav> -->
+              <!-- header and button class -->
+              <div class="header_wrapper center-align">
+
+                <div class="row">
+                    <h1 id="heading" ><i>Kora</i></h1>
+                <p class="job-view"> Web app quanitying soil, plant, and residue cover using convolutional neural networks </p>
+                </div>
+                    <div class = "row file-field input-field ">
+                        <div id="upload_btn_wrapper_div" class = "btn center-align">
+                            <span>Upload</span>
+                            <input id="filePhoto" onchange="uploadImage(this)" type="file" />
+                        </div>
+                    </div>
+                </div>
+
+
+     <div class="container"> 
+  
+
+
+        <br><br>
+
+        <div id="result_values" class="result_values row">
+            <div class="result_label col l4 m4 s4">
+                <div id="stubble_box" class="color-box"></div>
+                    <label class="result_text">Stubble :</label><label id="stubble_label"  class="result_text"></label></div>
+            <div class="result_label col l4 m4 s4">
+                <div id="soil_box" class="color-box"></div>
+                    <label class="result_text">Soil :</label><label id="soil_label"  class="result_text"></label></div>
+            <div class="result_label col l4 m4 s4">
+                <div id="canopy_box" class="color-box"></div>
+                    <label  class="result_text">Canopy :</label><label id="canopy_label"  class="result_text"></label></div>
+        </div>
+        
+        <div class="row">
+            <!-- original image -->
+            <div class="col l6 m12 s12"> <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" /> </div>
+            <!-- classified image-->
+            <div id="result_div" class="col l6 m12 s12"></div>
+          </div>
+        
+           
+        
+   </div> 
+  <button type="button" onclick="downloadSomething()">Download original image</button>
+  <a  id="downloadtagbtn" download="somename.png" href="data:image/png;base64,asdasd...">Download</a>
+    </body>
+
+    <script src="./classifier_attempt.js"></script>
+
+
